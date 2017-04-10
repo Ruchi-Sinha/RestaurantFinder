@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Food Forum</title>
+    <link href= "https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+    <link href= "style.css" rel= "stylesheet"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src= "//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+  </head>
+  <body ng-controller= "mainCtrl">
+    <h1 class= "title">Food Forum:</h1>
+    <div id="homepage">
+      <h1>Restaurants in your area:
+      <div id= "restaurant-container">
+        <label>Postcode: </label>
+        <input type="text" ng-model= "postcode"><br/>
+        <button ng-click="submit()">Find Restaurants</button>
+      </div><br/><br/>
+      <div id="restaurant-list" class="row">
+                <!-- LOOP OVER THE RESTAURANTS -->
+          <ul>
+                <li>
+                  <span className = "name">Name</span>
+                  <span className = "rating">Rating</span>
+                  <span className = "delivery">Delivery</span>
+                </li>
+          </ul>
+          <ul  ng-repeat="restaurant in restaurants">
+              <li>
+                <span className = "name">{{restaurant.name}}</span>
+                <span className = "rating">{{restaurant.rating}}</span>
+                <span className = {{restaurant.delivery}}>{{restaurant.delivery}}</span>
+              </li>
+          </ul>
+      </div>
+  </body>
+</html>
