@@ -9,9 +9,7 @@
   "dependencies": {
     "body-parser": "*",
     "express": "*",
-    "mongoose": "^4.9.4",
-    "method-override": "*",
-    "morgan" : "*"
+    "mongoose": "^4.9.4"
   },
   "author": "Ruchi",
   "license": "ISC",
