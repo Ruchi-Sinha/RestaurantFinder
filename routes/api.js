@@ -17,7 +17,7 @@ router.post('/restaurants', function(req, res, next){
   //Above two lines can be replaced by using mongoose method Create
   Restaurant.create(req.body).then(function(restaurant){
     //res.send(restaurant);
-    res.json(restaurants);
+    res.json(restaurant);
   }).catch(next);
   //This says to go to the next middleware which in this case is errorhandler
 });
@@ -27,7 +27,7 @@ router.put('/restaurants/:id', function(req, res, next){
   Restaurant.findByIdAndUpdate({_id : req.params.id}, req.body).then(function(){
     Restaurant.findOne({_id : req.params.id}).then(function(restaurant){
           //res.send(restaurant);
-          res.json(restaurants);
+          res.json(restaurant);
     });
   }).catch(next);
 });
@@ -36,7 +36,7 @@ router.put('/restaurants/:id', function(req, res, next){
 router.delete('/restaurants/:id', function(req, res, next){
   Restaurant.findByIdAndRemove({_id : req.params.id}).then(function(restaurant){
     //res.send(restaurant);
-    res.json(restaurants);
+    res.json(restaurant);
   }).catch(next);
 
 });
