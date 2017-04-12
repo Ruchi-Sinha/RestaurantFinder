@@ -15,9 +15,9 @@ router.post('/restaurants', function(req, res, next){
   //var restaurant = new Restaurant(req.body);
   //restaurant.save();
   //Above two lines can be replaced by using mongoose method Create
-  Restaurant.create(req.body).then(function(restaurant){
+  Restaurant.create(req.body).then(function(restaurants){
     //res.send(restaurant);
-    res.json(restaurant);
+    res.json(restaurants);
   }).catch(next);
   //This says to go to the next middleware which in this case is errorhandler
 });
@@ -25,18 +25,18 @@ router.post('/restaurants', function(req, res, next){
 //update a restaurant in db
 router.put('/restaurants/:id', function(req, res, next){
   Restaurant.findByIdAndUpdate({_id : req.params.id}, req.body).then(function(){
-    Restaurant.findOne({_id : req.params.id}).then(function(restaurant){
+    Restaurant.findOne({_id : req.params.id}).then(function(restaurants){
           //res.send(restaurant);
-          res.json(restaurant);
+          res.json(restaurants);
     });
   }).catch(next);
 });
 
 //delete the resaturant
 router.delete('/restaurants/:id', function(req, res, next){
-  Restaurant.findByIdAndRemove({_id : req.params.id}).then(function(restaurant){
+  Restaurant.findByIdAndRemove({_id : req.params.id}).then(function(restaurants){
     //res.send(restaurant);
-    res.json(restaurant);
+    res.json(restaurants);
   }).catch(next);
 
 });
