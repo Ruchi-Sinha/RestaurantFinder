@@ -4,5 +4,5 @@ Technology Stack:
   Nodejs
   Expressjs
   Mongodb
-  Angularjs(1.5.7) - Frontend
+  Angularjs(1.6.1) - Frontend
   
